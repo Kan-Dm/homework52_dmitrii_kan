@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Task</title>
 </head>
 <body>
 
+<h1>Create Task</h1>
+
+<form action="/task/add/" method="post">
+    {% csrf_token %}
+
+    <label>Description:</label><br/>
+    <input type="text" name="description"/><br/>
+
+    <label>Due date:</label><br/>
+    <input type="date" name="due_date"/><br/>
+    <select name="status">
+        {%for status_choice in status_choices %}
+            <option value="{{ status_choice.0 }}">{{ status_choice.1 }}</option>
+        {% endfor %}
+    </select>
+    <br/>
+    <input type="submit" value="Create"/>
+</form>
+
+<a href="/">На главную</a>
 </body>
 </html>
