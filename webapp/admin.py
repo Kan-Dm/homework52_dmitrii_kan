@@ -9,4 +9,3 @@ class TaskAdmin(admin.ModelAdmin):
     list_filter = ['status']
     search_fields = ['description', 'status']
     fields = ['description', 'status', 'due_date']
-    readonly_fields = ['due_date']
