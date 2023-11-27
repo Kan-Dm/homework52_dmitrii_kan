@@ -12,10 +12,14 @@ def create_task_view(request):
     if request.method == 'GET':
         return render(request, template_name='task_create.html', context={'status_choices': status_choices})
     elif request.method == 'POST':
+        if not request.POST.get('due_data'):
+            data = None
+        else:
+            data = request.POST.get('due_data')
         Task.objects.create(
             description=request.POST.get('description'),
             status=request.POST.get('status'),
-            due_date=request.POST.get('due_date')
+            due_date=data
         )
         return HttpResponseRedirect('/')
 
