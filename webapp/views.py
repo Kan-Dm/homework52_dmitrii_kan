@@ -23,3 +23,8 @@ def create_task_view(request):
         )
         return HttpResponseRedirect('/')
 
+
+def delete_task_view(request):
+    task_id = request.GET.get('id')
+    Task.objects.filter(id=task_id).delete()
+    return HttpResponseRedirect('/')
