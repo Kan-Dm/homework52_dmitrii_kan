@@ -6,16 +6,19 @@
     <title>To Do List</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
-  <body>
-    <h1>To Do List</h1>
-    <a class="btn btn-primary" href="/task/add" role="button">Create new task</a>
-
+  <body style="margin-left: 40px">
+    <div style="margin-bottom: 50px">
+        <h1>To Do List</h1>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="/task/add" role="button">Create new task</a>
+    </div>
     {% for task in tasks %}
         <div class="card my-3" style="width: 18rem;">
           <div class="card-body">
-            <h5 class="card-title">{{ task.description }}</h5>
-            <p class="card-text">{{ task.get_display_status }}</p>
-            <p>{{ task.due_date }}</p>
+            <h5 class="card-title">Описание: {{ task.description }}</h5>
+            <p class="card-text">Статус: {{ task.get_display_status }}</p>
+            <p>Дата выполнения: {{ task.due_date }}</p>
           </div>
         </div>
     {% endfor %}
