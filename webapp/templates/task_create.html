@@ -6,23 +6,28 @@
 </head>
 <body>
 
-<h1>Create Task</h1>
+<h1>Создать задачу</h1>
 
-<form action="/task/add/" method="post">
+<form action="/task/add/" method="post" style="margin-bottom: 20px">
     {% csrf_token %}
-
-    <label>Description:</label><br/>
-    <input type="text" name="description"/><br/>
-
-    <label>Due date:</label><br/>
-    <input type="date" name="due_date"/><br/>
+    <div style="margin-bottom: 20px">
+        <label>Описание:</label>
+        <input type="text" name="description"/><br/>
+    </div>
+    <div style="margin-bottom: 20px">
+        <label>Дата выполнения:</label>
+        <input type="date" name="due_date"/><br/>
+    </div>
+    <div>
+    Статус:
     <select name="status">
         {%for status_choice in status_choices %}
             <option value="{{ status_choice.0 }}">{{ status_choice.1 }}</option>
         {% endfor %}
     </select>
+    </div>
     <br/>
-    <input type="submit" value="Create"/>
+    <input type="submit" value="Создать"/>
 </form>
 
 <a href="/">На главную</a>
