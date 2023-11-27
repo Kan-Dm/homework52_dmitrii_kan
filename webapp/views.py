@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from webapp.models import Task, status_choices
+from django.http import HttpResponseRedirect
 
 
 def index_view(request):
@@ -8,4 +9,13 @@ def index_view(request):
 
 
 def create_task_view(request):
-    return render(request, template_name='task_create.html', context={'status_choices': status_choices})
+    if request.method == 'GET':
+        return render(request, template_name='task_create.html', context={'status_choices': status_choices})
+    elif request.method == 'POST':
+        Task.objects.create(
+            description=request.POST.get('description'),
+            status=request.POST.get('status'),
+            due_date=request.POST.get('due_date')
+        )
+        return HttpResponseRedirect('/')
+
