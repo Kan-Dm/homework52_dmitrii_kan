@@ -8,5 +8,11 @@ class Task(models.Model):
     status = models.CharField(max_length=20, default='Новая', verbose_name="Статус", choices=status_choices)
     due_date = models.DateField(verbose_name='Дата выполнения', null=True, blank=True)
 
+    def get_display_status(self):
+        dict_status_choices = dict(status_choices)
+        return dict_status_choices.get(self.status)
+
     def __str__(self):
-        return f'{self.id}. {self.description}'
+        return f'{self.id}. {self.description} {self.due_date} {self.status}'
+
+
