@@ -1,0 +1,47 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 21,
+  "fields": {
+    "description": "Помыть машину",
+    "status": "new",
+    "due_date": null
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 22,
+  "fields": {
+    "description": "Сделать ремонт",
+    "status": "in_progress",
+    "due_date": "2024-11-28"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 23,
+  "fields": {
+    "description": "Покормить собаку",
+    "status": "done",
+    "due_date": "2023-11-28"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$9fmoRAjX3uAvkBJcAZDcy6$E24fYLD4F6gZf+My3JeRQaPWkay2jZ0jaXu/+s7jN14=",
+    "last_login": "2023-11-27T18:14:13.929Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-11-27T17:40:50.984Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
