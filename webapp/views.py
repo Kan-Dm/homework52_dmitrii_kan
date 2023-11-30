@@ -24,13 +24,11 @@ def create_task_view(request):
         return HttpResponseRedirect('/')
 
 
-def delete_task_view(request):
-    task_id = request.GET.get('id')
-    Task.objects.filter(id=task_id).delete()
+def delete_task_view(request, pk):
+    Task.objects.filter(pk=pk).delete()
     return HttpResponseRedirect('/')
 
 
-def task_view(request):
-    task_id = request.GET.get('id')
-    task = Task.objects.get(id=task_id)
+def task_view(request, pk):
+    task = Task.objects.get(pk=pk)
     return render(request, template_name='task_view.html', context={'task': task})
