@@ -9,7 +9,7 @@
   <body>
     <div class="container">
         <h1>Создать задачу</h1>
-        <form action="/task/add/" method="post" style="margin-bottom: 20px">
+        <form action="{% url 'task_add' %}" method="post" style="margin-bottom: 20px">
             {% csrf_token %}
             <div style="margin-bottom: 20px">
                 <label for="description">Описание:</label>
@@ -35,7 +35,7 @@
             <input type="submit" value="Создать"/>
         </form>
 
-        <a href="/">На главную</a>
+        <a href="{% url 'index' %}">На главную</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
