@@ -28,3 +28,9 @@ def delete_task_view(request):
     task_id = request.GET.get('id')
     Task.objects.filter(id=task_id).delete()
     return HttpResponseRedirect('/')
+
+
+def task_view(request):
+    task_id = request.GET.get('id')
+    task = Task.objects.get(id=task_id)
+    return render(request, template_name='task_view.html', context={'task': task})
