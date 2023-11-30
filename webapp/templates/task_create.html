@@ -1,42 +1,33 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create Task</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
-    <div class="container">
-        <h1>Создать задачу</h1>
-        <form action="{% url 'task_add' %}" method="post" style="margin-bottom: 20px">
-            {% csrf_token %}
-            <div style="margin-bottom: 20px">
-                <label for="description">Описание:</label>
-                <input type="text" name="description" required id="description"/><br/>
-            </div>
-            <div style="margin-bottom: 20px">
-                <label for="due_date">Дата выполнения:</label>
-                <input type="date" name="due_date" id="due_date"/><br/>
-            </div>
-            <div>
-                <label for="status">Статус:</label>
-                <select name="status" id="status" style="margin-bottom: 20px">
-                    {%for status_choice in status_choices %}
-                        <option value="{{ status_choice.0 }}">{{ status_choice.1 }}</option>
-                    {% endfor %}
-                </select>
-            </div>
-            <div style="display: flex; flex-direction: column">
-                <label for="detailed_description">Подробное описание:</label>
-                <textarea name="detailed_description" id="detailed_description" cols="30" rows="10"></textarea>
-            </div>
-            <br/>
-            <input type="submit" value="Создать"/>
-        </form>
+{% extends 'base.html' %}
 
-        <a href="{% url 'index' %}">На главную</a>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
-</html>
+{% block title %}
+    Create Task
+{% endblock %}
+{% block content %}
+    <h1>Создать задачу</h1>
+    <form action="{% url 'task_add' %}" method="post" style="margin-bottom: 20px">
+        {% csrf_token %}
+        <div style="margin-bottom: 20px">
+            <label for="description">Описание:</label>
+            <input type="text" name="description" required id="description"/><br/>
+        </div>
+        <div style="margin-bottom: 20px">
+            <label for="due_date">Дата выполнения:</label>
+            <input type="date" name="due_date" id="due_date"/><br/>
+        </div>
+        <div>
+            <label for="status">Статус:</label>
+            <select name="status" id="status" style="margin-bottom: 20px">
+                {%for status_choice in status_choices %}
+                    <option value="{{ status_choice.0 }}">{{ status_choice.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div style="display: flex; flex-direction: column">
+            <label for="detailed_description">Подробное описание:</label>
+            <textarea name="detailed_description" id="detailed_description" cols="30" rows="10"></textarea>
+        </div>
+        <br/>
+        <input type="submit" value="Создать"/>
+    </form>
+{% endblock %}
