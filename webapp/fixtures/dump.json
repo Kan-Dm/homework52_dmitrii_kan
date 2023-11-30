@@ -1,32 +1,32 @@
 [
 {
   "model": "webapp.task",
-  "pk": 21,
+  "pk": 40,
   "fields": {
     "description": "Помыть машину",
     "status": "new",
-    "due_date": null,
-    "detailed_description": null
+    "due_date": "2023-12-01",
+    "detailed_description": "Test\r\nTest"
   }
 },
 {
   "model": "webapp.task",
-  "pk": 22,
+  "pk": 41,
   "fields": {
-    "description": "Сделать ремонт",
+    "description": "Отвезти собаку к ветеринару",
     "status": "in_progress",
-    "due_date": "2024-11-28",
-    "detailed_description": null
+    "due_date": "2023-12-10",
+    "detailed_description": "Test\r\nTest\r\nTest"
   }
 },
 {
   "model": "webapp.task",
-  "pk": 23,
+  "pk": 48,
   "fields": {
-    "description": "Покормить собаку",
-    "status": "done",
-    "due_date": "2023-11-28",
-    "detailed_description": "TEST"
+    "description": "Купить продукты",
+    "status": "in_progress",
+    "due_date": null,
+    "detailed_description": "Молоко,                Морковь.\r\nКартошка, Соль,           Корм."
   }
 },
 {
