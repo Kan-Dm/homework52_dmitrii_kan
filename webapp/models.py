@@ -7,7 +7,7 @@ class Task(models.Model):
     description = models.CharField(max_length=50, verbose_name="Описание")
     status = models.CharField(max_length=20, default='Новая', verbose_name="Статус", choices=status_choices)
     due_date = models.DateField(verbose_name='Дата выполнения', null=True, blank=True)
-    detailed_description = models.TextField(max_length=1000, null=False, blank=False, verbose_name='Подробное описание')
+    detailed_description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='Подробное описание')
 
     def get_display_status(self):
         dict_status_choices = dict(status_choices)
