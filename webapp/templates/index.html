@@ -11,7 +11,7 @@
         <h1>To Do List</h1>
     </div>
     <div>
-        <a class="btn btn-primary" href="/task/add" role="button">Create new task</a>
+        <a class="btn btn-primary" href={% url 'task_add' %} role="button">Create new task</a>
     </div>
     {% for task in tasks %}
         <div class="card my-3" style="width: 18rem;">
@@ -19,8 +19,8 @@
             <h5 class="card-title">Описание: {{ task.description }}</h5>
             <p class="card-text">Статус: {{ task.get_display_status }}</p>
             <p>Дата выполнения: {{ task.due_date }}</p>
-            <a href="task/{{ task.pk }}" class="card-link">Подробнее</a>
-            <a href="task/delete/{{ task.pk }}" class="card-link">Удалить</a>
+            <a href="{% url 'task_view' task.pk %}" class="card-link">Подробнее</a>
+            <a href="{% url 'task_delete' task.pk %}" class="card-link">Удалить</a>
           </div>
         </div>
     {% endfor %}
