@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from webapp.models import Task, status_choices
 from django.http import HttpResponseRedirect
 
@@ -30,5 +30,5 @@ def delete_task_view(request, pk):
 
 
 def task_view(request, pk):
-    task = Task.objects.get(pk=pk)
+    task = get_object_or_404(Task, pk=pk)
     return render(request, template_name='task_view.html', context={'task': task})
