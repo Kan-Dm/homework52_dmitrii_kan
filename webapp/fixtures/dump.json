@@ -5,7 +5,8 @@
   "fields": {
     "description": "Помыть машину",
     "status": "new",
-    "due_date": null
+    "due_date": null,
+    "detailed_description": null
   }
 },
 {
@@ -14,7 +15,8 @@
   "fields": {
     "description": "Сделать ремонт",
     "status": "in_progress",
-    "due_date": "2024-11-28"
+    "due_date": "2024-11-28",
+    "detailed_description": null
   }
 },
 {
@@ -23,7 +25,8 @@
   "fields": {
     "description": "Покормить собаку",
     "status": "done",
-    "due_date": "2023-11-28"
+    "due_date": "2023-11-28",
+    "detailed_description": "TEST"
   }
 },
 {
@@ -31,7 +34,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$600000$9fmoRAjX3uAvkBJcAZDcy6$E24fYLD4F6gZf+My3JeRQaPWkay2jZ0jaXu/+s7jN14=",
-    "last_login": "2023-11-27T18:14:13.929Z",
+    "last_login": "2023-11-30T02:28:25.573Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
