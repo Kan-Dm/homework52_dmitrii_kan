@@ -10,20 +10,29 @@
 {% endblock %}
 
 {% block content %}
-    {% for task in tasks %}
-        <div class="card my-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Описание: {{ task.description }}</h5>
-            <p class="card-text">Статус: {{ task.get_display_status }}</p>
-            <p>Дата выполнения: {{ task.due_date }}</p>
-            <div>
-                <a href="{% url 'task_view' task.pk %}" class="card-link">Подробнее >>></a>
+    <form action="{% url 'delete_chosen_tasks' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary" style="margin-bottom: 30px; margin-top: 20px">Delete chosen tasks</button>
+        {% for task in tasks %}
+            <div class="card my-3" style="width: 18rem;">
+              <div class="card-body">
+                  <div style="display: flex; justify-content: space-between">
+                      <h5 class="card-title">Описание: {{ task.description }}</h5>
+                      <div class="form-check" style="margin-left: 10px">
+                        <input class="form-check-input" type="checkbox" name="chosen_task" value="{{ task.pk }}">
+                      </div>
+                  </div>
+                <p class="card-text">Статус: {{ task.get_display_status }}</p>
+                <p>Дата выполнения: {{ task.due_date }}</p>
                 <div>
-                    <a href="{% url 'task_edit' task.pk %}" class="card-link">Редактировать</a>
-                    <a href="{% url 'task_delete' task.pk %}" class="card-link">Удалить</a>
+                    <a href="{% url 'task_view' task.pk %}" class="card-link">Подробнее >>></a>
+                    <div>
+                        <a href="{% url 'task_edit' task.pk %}" class="card-link">Редактировать</a>
+                        <a href="{% url 'task_delete' task.pk %}" class="card-link">Удалить</a>
+                    </div>
                 </div>
+              </div>
             </div>
-          </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </form>
 {% endblock %}

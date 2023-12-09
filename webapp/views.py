@@ -68,7 +68,7 @@ def task_edit_view(request, pk):
 
 
 def delete_chosen_tasks(request):
-    tasks_list = request.GET.getlist('chosen_tasks')
+    tasks_list = request.GET.getlist('chosen_task')
     for task_id in tasks_list:
         Task.objects.filter(pk=task_id).delete()
     return redirect('index')
