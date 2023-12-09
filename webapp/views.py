@@ -65,3 +65,10 @@ def task_edit_view(request, pk):
             return redirect('task_view', pk=task.pk)
         else:
             return render(request, template_name='task_edit.html', context={'task': task, 'form': form})
+
+
+def delete_chosen_tasks(request):
+    tasks_list = request.GET.getlist('chosen_tasks')
+    for task_id in tasks_list:
+        Task.objects.filter(pk=task_id).delete()
+    return redirect('index')
