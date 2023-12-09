@@ -15,10 +15,14 @@ def create_task_view(request):
     elif request.method == 'POST':
         form = TaskForm(data=request.POST)
         if form.is_valid():
+            if not request.POST.get('due_date'):
+                date = None
+            else:
+                date = request.POST.get('due_date')
             task = Task.objects.create(
                 description=request.POST.get('description'),
                 status=request.POST.get('status'),
-                due_date=request.POST.get('due_date'),
+                due_date=date,
                 detailed_description=request.POST.get('detailed_description')
             )
             return redirect('task_view', pk=task.pk)
@@ -60,4 +64,4 @@ def task_edit_view(request, pk):
             task.save()
             return redirect('task_view', pk=task.pk)
         else:
-            return redirect(request, template_name='task_edit.html', context={'task': task, 'form': form})
+            return render(request, template_name='task_edit.html', context={'task': task, 'form': form})
