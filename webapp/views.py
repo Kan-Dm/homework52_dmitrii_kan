@@ -25,8 +25,12 @@ def create_task_view(request, *args, **kwargs):
 
 
 def delete_task_view(request, pk):
-    Task.objects.filter(pk=pk).delete()
-    return redirect('index')
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        return render(request, template_name='task_delete.html', context={'task': task})
+    elif request.method == 'POST':
+        task.delete()
+        return redirect('index')
 
 
 def task_view(request, pk):
