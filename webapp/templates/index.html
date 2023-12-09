@@ -14,8 +14,13 @@
             <h5 class="card-title">Описание: {{ task.description }}</h5>
             <p class="card-text">Статус: {{ task.get_display_status }}</p>
             <p>Дата выполнения: {{ task.due_date }}</p>
-            <a href="{% url 'task_view' task.pk %}" class="card-link">Подробнее</a>
-            <a href="{% url 'task_delete' task.pk %}" class="card-link">Удалить</a>
+            <div>
+                <a href="{% url 'task_view' task.pk %}" class="card-link">Подробнее >>></a>
+                <div>
+                    <a href="{% url 'task_edit' task.pk %}" class="card-link">Редактировать</a>
+                    <a href="{% url 'task_delete' task.pk %}" class="card-link">Удалить</a>
+                </div>
+            </div>
           </div>
         </div>
     {% endfor %}

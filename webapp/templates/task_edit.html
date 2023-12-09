@@ -7,7 +7,7 @@
 {% block content %}
     <div style="width: 40%">
         <h1>Редактирование задачи</h1>
-        <form action="{% url 'task_edit' product.pk %}" method="post" style="margin-top: 20px">
+        <form action="{% url 'task_edit' task.pk %}" method="post" style="margin-top: 20px">
           {% include 'partial/task_form.html' with button_text='Сохранить'%}
         </form>
     </div>
