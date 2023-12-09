@@ -3,31 +3,12 @@
 {% block title %}
     Create Task
 {% endblock %}
+
 {% block content %}
-    <h1>Создать задачу</h1>
-    <form action="{% url 'task_add' %}" method="post" style="margin-bottom: 20px">
-        {% csrf_token %}
-        <div style="margin-bottom: 20px">
-            <label for="description">Описание:</label>
-            <input type="text" name="description" required id="description"/><br/>
-        </div>
-        <div style="margin-bottom: 20px">
-            <label for="due_date">Дата выполнения:</label>
-            <input type="date" name="due_date" id="due_date"/><br/>
-        </div>
-        <div>
-            <label for="status">Статус:</label>
-            <select name="status" id="status" style="margin-bottom: 20px">
-                {%for status_choice in status_choices %}
-                    <option value="{{ status_choice.0 }}">{{ status_choice.1 }}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <div style="display: flex; flex-direction: column">
-            <label for="detailed_description">Подробное описание:</label>
-            <textarea name="detailed_description" id="detailed_description" cols="30" rows="10"></textarea>
-        </div>
-        <br/>
-        <input type="submit" value="Создать"/>
-    </form>
+    <div style="width: 40%">
+        <h1>Создание задачи</h1>
+        <form action="{% url 'task_add' %}" method="post" style="margin-top: 20px">
+          {% include 'partial/task_form.html' with button_text='Создать'%}
+        </form>
+    </div>
 {% endblock %}
