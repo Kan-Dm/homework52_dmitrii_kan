@@ -1,16 +1,6 @@
 [
 {
   "model": "webapp.task",
-  "pk": 40,
-  "fields": {
-    "description": "Помыть машину",
-    "status": "new",
-    "due_date": "2023-12-01",
-    "detailed_description": "Test\r\nTest"
-  }
-},
-{
-  "model": "webapp.task",
   "pk": 41,
   "fields": {
     "description": "Отвезти собаку к ветеринару",
@@ -24,9 +14,19 @@
   "pk": 48,
   "fields": {
     "description": "Купить продукты",
-    "status": "in_progress",
-    "due_date": null,
+    "status": "done",
+    "due_date": "2023-11-30",
     "detailed_description": "Молоко,                Морковь.\r\nКартошка, Соль,           Корм."
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 61,
+  "fields": {
+    "description": "Помыть машину",
+    "status": "new",
+    "due_date": null,
+    "detailed_description": "Тест"
   }
 },
 {
@@ -34,7 +34,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$600000$9fmoRAjX3uAvkBJcAZDcy6$E24fYLD4F6gZf+My3JeRQaPWkay2jZ0jaXu/+s7jN14=",
-    "last_login": "2023-11-30T02:28:25.573Z",
+    "last_login": "2023-12-09T17:06:33.694Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
