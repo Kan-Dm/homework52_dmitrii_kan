@@ -21,7 +21,7 @@ def create_task_view(request):
                 due_date=request.POST.get('due_date'),
                 detailed_description=request.POST.get('detailed_description')
             )
-            return redirect('task_edit', pk=task.pk)
+            return redirect('task_view', pk=task.pk)
         else:
             return render(request, template_name='task_create.html', context={'form': form})
 
