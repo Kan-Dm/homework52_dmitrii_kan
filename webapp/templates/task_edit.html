@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %}
+    Edit Task
+{% endblock %}
+
+{% block content %}
+    <div style="width: 40%">
+        <h1>Редактирование задачи</h1>
+        <form action="{% url 'task_edit' product.pk %}" method="post" style="margin-top: 20px">
+          {% include 'partial/task_form.html' with button_text='Сохранить'%}
+        </form>
+    </div>
+{% endblock %}
