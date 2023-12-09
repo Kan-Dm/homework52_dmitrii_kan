@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from webapp.models import Task, status_choices
+from webapp.forms import TaskForm
 
 
 def index_view(request):
@@ -36,3 +37,26 @@ def delete_task_view(request, pk):
 def task_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
     return render(request, template_name='task_view.html', context={'task': task})
+
+
+def task_edit_view(request, pk):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        form = TaskForm(initial={
+            'description': task.description,
+            'status': task.status,
+            'due_date': task.due_date,
+            'detailed_description': task.detailed_description
+        })
+        return render(request, template_name='task_edit.html', context={'task': task, 'form': form})
+    elif request.method == 'POST':
+        form = TaskForm(data=request.POST)
+        if form.is_valid():
+            task.description = form.cleaned_data['description']
+            task.status = form.cleaned_data['status']
+            task.due_date = form.cleaned_data['due_date']
+            task.detailed_description = form.cleaned_data['detailed_description']
+            task.save()
+            return redirect('task_view', pk=task.pk)
+        else:
+            return redirect(request, template_name='task_edit.html', context={'task': task, 'form': form})
