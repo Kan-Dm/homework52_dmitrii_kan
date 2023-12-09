@@ -4,7 +4,9 @@
 {% endblock %}
 
 {% block navmenu %}
-    <a class="nav-link active" aria-current="page" href="{% url 'task_add' %}">Create new task</a>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'task_add' %}">Create new task</a>
+    </li>
 {% endblock %}
 
 {% block content %}
